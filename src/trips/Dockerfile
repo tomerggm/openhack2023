@@ -17,9 +17,9 @@ ARG IMAGE_SOURCE_REVISION
 
 ENV PORT="80" \
     CONFIG_FILES_PATH="/secrets" \
-    SQL_USER="sqladmin" \
-    SQL_PASSWORD="changeme" \
-    SQL_SERVER="changeme.database.windows.net" \
+    SQL_USER="sqladminkZz8222" \
+    SQL_PASSWORD="Sqlteam4!" \
+    SQL_SERVER="sqlserverkzz8222.database.windows.net" \
     SQL_DBNAME="mydrivingDB" \
     OPENAPI_DOCS_URI="http://changeme" \
     DEBUG_LOGGING="false"

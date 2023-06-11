@@ -45,13 +45,13 @@ ARG IMAGE_VERSION
 ARG IMAGE_SOURCE_REVISION
 
 # set DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false to overcome an incompatibility issue that prevents the app from connecting to Azure SQL
-ENV SQL_USER="sqladmin" \
-    SQL_PASSWORD="changeme" \
-    SQL_SERVER="changeme.database.windows.net" \
+ENV SQL_USER="sqladminkZz8222" \
+    SQL_PASSWORD="Sqlteam4!" \
+    SQL_SERVER="sqlserverkzz8222.database.windows.net" \
     SQL_DBNAME="mydrivingDB" \
     WEB_PORT=80 \
     WEB_SERVER_BASE_URI="http://0.0.0.0" \
-    ASPNETCORE_ENVIRONMENT="Development" \
+    ASPNETCORE_ENVIRONMENT="Production" \
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \ 
     CONFIG_FILES_PATH="/secrets"
 
