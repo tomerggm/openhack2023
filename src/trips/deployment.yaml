@@ -25,6 +25,8 @@ spec:
         - name: sql-secret-volume
           secret:
             secretName: sql-secret
+      imagePullSecrets:
+        - name: acr-credentials
 ---
 apiVersion: v1
 kind: Service
