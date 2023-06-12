@@ -39,9 +39,16 @@ spec:
             secretName: sql-secret
       imagePullSecrets:
         - name: acr-credentials
-        
-          volumeMounts:
-            - name: sql-secret-volume
-              mountPath: /app/secrets
-              readOnly: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: poi-service
+spec:
+  selector:
+    app: poi
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
 
