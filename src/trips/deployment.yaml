@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: trips
-          image: registryyyz6083.azurecr.io/microservices/trips:v1
+          image: registryyyz6083.azurecr.io/trips:v1
           ports:
             - containerPort: 80
           env:
