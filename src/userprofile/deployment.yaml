@@ -1,1 +1,39 @@
-h
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userprofile-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userprofile
+  template:
+    metadata:
+      labels:
+        app: userprofile
+    spec:
+      containers:
+        - name: userprofile
+          image: registryyyz6083.azurecr.io/microservices/tripviewer:v1
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: sql-secret-volume
+              mountPath: /app/secrets
+              readOnly: true
+      volumes:
+        - name: sql-secret-volume
+          secret:
+            secretName: sql-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trips-service
+spec:
+  selector:
+    app: trips
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
