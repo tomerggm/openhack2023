@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: userprofile-deployment
+  name: tripviewer-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: userprofile
+      app: tripviewer
   template:
     metadata:
       labels:
-        app: userprofile
+        app: tripviewer
     spec:
       containers:
-        - name: userprofile
-          image: registryyyz6083.azurecr.io/microservices/userprofile:v1
+        - name: tripviewer
+          image: registryyyz6083.azurecr.io/tripviewer:v1
           ports:
             - containerPort: 8080
           env:
@@ -43,10 +43,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: userprofile-service
+  name: tripviewer-service
 spec:
   selector:
-    app: userprofile
+    app: tripviewer
   ports:
     - protocol: TCP
       port: 8080

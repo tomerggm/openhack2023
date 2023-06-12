@@ -18,21 +18,21 @@ spec:
           ports:
             - containerPort: 8080
           env:
-          - name: SQL_SERVER
-            valueFrom:
-              secretKeyRef:
-                name: sql-secret
-                key: SQL_SERVER
-          - name: SQL_USER
-            valueFrom:
-              secretKeyRef:
-                name: sql-secret
-                key: SQL_USER
-          - name: SQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: sql-secret
-                key: SQL_PASSWORD
+            - name: SQL_SERVER
+              valueFrom:
+                secretKeyRef:
+                  key: SQL_SERVER
+                  name: sql-secret
+            - name: SQL_USER
+              valueFrom:
+                secretKeyRef:
+                  key: SQL_USER
+                  name: sql-secret
+            - name: SQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: SQL_PASSWORD
+                  name: sql-secret
       volumes:
         - name: sql-secret-volume
           secret:
@@ -51,4 +51,3 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-
