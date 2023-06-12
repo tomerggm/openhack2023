@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poi
+  template:
+    metadata:
+      labels:
+        app: poi
+    spec:
+      containers:
+        - name: poi
+          image: registryyyz6083.azurecr.io/microservices/poi:v1
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: sql-secret-volume
+              mountPath: /app/secrets
+              readOnly: true
+      volumes:
+        - name: sql-secret-volume
+          secret:
+            secretName: sql-secret
+      imagePullSecrets:
+        - name: acr-credentials
+
