@@ -16,7 +16,7 @@ spec:
         - name: userprofile
           image: registryyyz6083.azurecr.io/microservices/userprofile:v1
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           env:
             - name: SQL_SERVER
               valueFrom:
@@ -48,6 +48,4 @@ spec:
   selector:
     app: userprofile
   ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
+  - port: 80

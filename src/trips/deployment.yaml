@@ -16,7 +16,7 @@ spec:
         - name: trips
           image: registryyyz6083.azurecr.io/trips:v1
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           env:
             - name: SQL_SERVER
               valueFrom:
@@ -52,6 +52,4 @@ spec:
   selector:
     app: trips
   ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
+  - port: 80
