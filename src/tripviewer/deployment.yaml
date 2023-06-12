@@ -38,7 +38,7 @@ spec:
             - name: TRIPS_API_ENDPOINT
               value: http://trips-service.microservices.svc.cluster.local
             - name: ASPNETCORE_ENVIRONMENT
-              value: Development
+              value: Development
       volumes:
         - name: sql-secret-volume
           secret:
