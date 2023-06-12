@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: userprofile
-          image: registryyyz6083.azurecr.io/microservices/tripviewer:v1
+          image: registryyyz6083.azurecr.io/microservices/userprofile:v1 tripinsights/userprofile
           ports:
             - containerPort: 8080
           volumeMounts:
@@ -25,14 +25,16 @@ spec:
         - name: sql-secret-volume
           secret:
             secretName: sql-secret
+      imagePullSecrets:
+        - name: acr-credentials
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: trips-service
+  name: userprofile-service
 spec:
   selector:
-    app: trips
+    app: userprofile
   ports:
     - protocol: TCP
       port: 8080
