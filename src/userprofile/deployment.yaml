@@ -33,6 +33,12 @@ spec:
               secretKeyRef:
                 name: sql-secret
                 key: SQL_PASSWORD
+      volumes:
+        - name: sql-secret-volume
+          secret:
+            secretName: sql-secret
+      imagePullSecrets:
+        - name: acr-credentials
 ---
 apiVersion: v1
 kind: Service
