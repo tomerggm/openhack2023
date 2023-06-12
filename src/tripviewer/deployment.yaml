@@ -33,6 +33,12 @@ spec:
                 secretKeyRef:
                   key: SQL_PASSWORD
                   name: sql-secret
+            - name: USERPROFILE_API_ENDPOINT
+              value: http://userprofile-service.microservices.svc.cluster.local
+            - name: TRIPS_API_ENDPOINT
+              value: http://trips-service.microservices.svc.cluster.local
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
       volumes:
         - name: sql-secret-volume
           secret:
